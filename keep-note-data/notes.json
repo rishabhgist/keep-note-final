@@ -1,0 +1,14 @@
+{
+  "notes": [
+    {
+      "id": 2,
+      "title": "practice-exercise: typescript",
+      "content": "solution development progress - exercise 1 solution ready, exercise 2 solution to be started"
+    },
+    {
+      "id": 5,
+      "title": "challenge: SPA",
+      "content": "Keep Note app solution development completed. Styling and routing implemented"
+    }
+  ]
+}
