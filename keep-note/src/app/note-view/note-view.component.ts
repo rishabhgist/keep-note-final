@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Note } from '../model/note';
 import { NoteService } from '../services/note.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-note-view',
@@ -11,12 +12,14 @@ export class NoteViewComponent implements OnInit {
 
   notes: Note [] =[];
  
-  constructor(private note:NoteService) { }
+  constructor(private note:NoteService, private header: HeaderComponent) { }
 
   ngOnInit(): void {
+    this.header.isLoggedIn = true;
     this.getAll()
+
   }
-  getData(data:any) {
+  getData(data: any) {
     this.notes = data;
   }
   getAll() {
