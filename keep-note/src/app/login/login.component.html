@@ -2,16 +2,22 @@
     <mat-card>
         <mat-card-title>Welcome Back, <span>Login</span> <br> to Continue.</mat-card-title>
         <mat-card-content>
-            <form>
+            <form [formGroup]="userLogin" (submit)="login">
                 <mat-form-field>
                     <mat-label>Username</mat-label>
-                    <input type="text" matInput required name="username" autofocus>
+                    <input type="text" matInput required name="username" autofocus formControlName="username" >
+                    <mat-error class="error" *ngIf="userLogin.controls['username'].hasError('required')">
+                        Usernamne is required.
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input type="password" matInput required name="password">
+                    <input type="password" matInput required name="password" formControlName="password">
+                    <mat-error class="error" *ngIf="userLogin.controls['password'].hasError('required')">
+                        Password is required.
+                    </mat-error>
                 </mat-form-field>
-                <button mat-raised-button color="primary" [disabled]="">Login</button>
+                <button mat-raised-button color="primary" [disabled]="userLogin.invalid">Login</button>
             </form>
             <div class="foot">Don't remeber your password <span><a href="#">forget?</a></span></div>
         </mat-card-content>
