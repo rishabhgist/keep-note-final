@@ -13,4 +13,7 @@ export class RouteService {
   navigateToLoginView() {
     this.router.navigate(['login']);
   }
+  navigateToTourRequestsView() {
+    this.router.navigate(['note-view']);
+  }
 }
