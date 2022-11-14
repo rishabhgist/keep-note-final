@@ -5,11 +5,13 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { LoginComponent } from './login/login.component';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
     path: 'note-view',
     component: NoteViewComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',
