@@ -1,0 +1,19 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+    
+.add-note-container{
+    width: 500px;
+    margin: 50px auto;
+}
+mat-card-title{
+    color: #3f51b5;
+    text-align: center;
+}
+mat-radio-button{
+    margin-right: 15px;
+}
+button{
+    margin-top: 30px;
+}

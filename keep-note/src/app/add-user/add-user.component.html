@@ -1,0 +1,220 @@
+<div class="container">
+ <mat-card>
+  <mat-card-title>User Registration Form</mat-card-title>
+  <mat-card-content>
+     <form [formGroup]="regForm" (submit)="save(regForm)">
+    <div class="fl">
+      <mat-form-field >
+        <mat-label>First Name</mat-label>
+        <input
+          type="text"
+          matInput
+          name="firstName"
+          required
+          formControlName="firstName"
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['firstName'].hasError('required')"
+        >
+          First name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Last Name</mat-label>
+        <input
+          type="text"
+          matInput
+          name="lastName"
+          required
+          formControlName="lastName"
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['lastName'].hasError('required')"
+        >
+          Last name is required
+        </mat-error>
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['lastName'].hasError('minlength')"
+        >
+          Last name should have minimum of 2 characters
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field >
+      <mat-label>Email</mat-label>
+      <input
+        type="text"
+        matInput
+        name="email"
+        required
+        formControlName="email"
+        required
+      />
+      <mat-error
+        class="error"
+        *ngIf="regForm.controls['email'].hasError('required')"
+      >
+        Email is required
+      </mat-error>
+      <mat-error
+        class="error"
+        *ngIf="regForm.controls['email'].hasError('pattern')"
+      >
+        Enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <div class="fl">
+      <mat-form-field >
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          name="password"
+          formControlName="password"
+          required
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['password'].hasError('required')"
+        >
+          Password is required
+        </mat-error>
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['password'].hasError('pattern')"
+        >
+          Password should have min 8 letter password, with at least a symbol,
+          upper and lower case letters and a number
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Confirm Password</mat-label>
+        <input
+          type="password"
+          matInput
+          name="confirmPassword"
+          formControlName="confirmPassword"
+          required
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['confirmPassword'].hasError('required')"
+        >
+          Confirm Password is required
+        </mat-error>
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['confirmPassword'].hasError('verifypwd')"
+        >
+          Password & Confirm Password should match
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <mat-radio-group
+      aria-label="Gender"
+      name="gender"
+      formControlName="gender"
+      required
+    >
+      <span>Gender</span>
+      <mat-radio-button value="Male">Male</mat-radio-button>
+      <mat-radio-button value="Female">Female</mat-radio-button>
+    </mat-radio-group>
+    <div class="fl">
+      <mat-form-field >
+        <mat-label>Age</mat-label>
+        <input
+          type="number"
+          matInput
+          formControlName="age"
+          name="age"
+          required
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['age'].hasError('required')"
+        >
+          Age is required
+        </mat-error>
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['age'].hasError('verifyAge')"
+        >
+          Age must be 18 years and above
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Phone Number</mat-label>
+        <input
+          type="number"
+          matInput
+          formControlName="phone"
+          name="phone"
+          required
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['phone'].hasError('required')"
+        >
+          Phone number is required
+        </mat-error>
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['phone'].hasError('pattern')"
+        >
+          Valid phone number contains 10 digit starting with 7/8/9
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="address">
+      <p>Address</p>
+      <mat-form-field >
+        <mat-label>Street </mat-label>
+        <input type="text" matInput formControlName="street" name="street" />
+      </mat-form-field>
+      <div class="fl">
+        <mat-form-field >
+          <mat-label>City </mat-label>
+          <input type="text" matInput formControlName="city" name="city" />
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>State </mat-label>
+          <input type="text" matInput formControlName="state" name="state" />
+        </mat-form-field>
+      </div>
+      <mat-form-field >
+        <mat-label>Zip Code</mat-label>
+        <input
+          type="number"
+          matInput
+          formControlName="zipCode"
+          name="zipCode"
+          required
+        />
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['zipCode'].hasError('required')"
+        >
+          Zip Code is required
+        </mat-error>
+        <mat-error
+          class="error"
+          *ngIf="regForm.controls['zipCode'].hasError('pattern')"
+        >
+          Zip code should be 5- or 5-digit number
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="btn">
+      <button mat-raised-button color="accent" type="reset">Reset</button>
+      <button mat-raised-button color="primary" [disabled]="regForm.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+  </mat-card-content>
+ </mat-card>
+</div>

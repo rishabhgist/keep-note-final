@@ -1,0 +1,62 @@
+<div class="add-note-container">
+<mat-card>
+    <mat-card-title>
+        Add a Note
+    </mat-card-title>
+    <mat-card-content>
+         <form #addNote="ngForm">
+                    <mat-form-field>
+                        <mat-label>Title</mat-label>
+                        <input #title="ngModel" matInput type="text" name="title" minlength="3" required [(ngModel)]="notes.title">
+                        <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                            <div *ngIf="title.errors?.['required']">`
+                                Title name is required
+                            </div>
+                            <div *ngIf="title.errors?.['minlength']">
+                                Title minimum Length is {{title.errors?.['minlength']?.requiredLength}}
+                            </div>
+                        </div>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Note Content</mat-label>
+                        <textarea #content="ngModel" matInput name="content" id="content" minlength="5" required [(ngModel)]="notes.content"></textarea>
+                        <div *ngIf="content?.invalid && (content?.dirty || content?.touched)">
+                            <div *ngIf="content.errors?.['required']">`
+                                Note Content cannot be empty
+                            </div>
+                            <div *ngIf="content.errors?.['minlength']">
+                                Note content should be minimum 5 characters {{content.errors?.['minlength']?.requiredLength}}
+                            </div>
+                        </div>
+                    </mat-form-field>
+                   <mat-form-field>
+                    <mat-label>Remainder Date</mat-label>
+                        <input #reminderDate="ngModel" matInput type="date" required [(ngModel)]="notes.reminderDate" name="reminderDate">
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <div *ngIf="reminderDate?.invalid && (reminderDate?.dirty || reminderDate?.touched)">
+                            <div *ngIf="reminderDate.errors?.['required']">`
+                                Remainder Date cannot be empty
+                            </div>
+                        </div>
+                   </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Category</mat-label>
+                        <input matInput name="category" required>
+                    </mat-form-field>
+                    <mat-radio-group aria-label="Select an option" required [(ngModel)]="notes.priority" name="priority">
+                        <mat-radio-button value="Low">Low</mat-radio-button>
+                        <mat-radio-button value="Medium">Medium</mat-radio-button>
+                        <mat-radio-button value="High">High</mat-radio-button>
+                        <mat-radio-button value="Critical">Critical</mat-radio-button>
+                    </mat-radio-group>
+                    <button mat-mini-fab color="primary" [disabled]="addNote.invalid">
+                        <mat-icon class="icon">save</mat-icon>
+                    </button>
+                </form>
+    </mat-card-content>
+</mat-card>
+
+               
+</div>
+
+
