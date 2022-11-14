@@ -9,8 +9,10 @@ export class AuthService {
   isLoggedIn = false;
 
   login(username: string, password: string) {
-    this.isLoggedIn = username === 'admin' && password === 'admin123';
-    return this.isLoggedIn;
+    if (username === "admin" && password === "admin") {
+      return true;
+    }
+    return false;
   }
 
   logout() {

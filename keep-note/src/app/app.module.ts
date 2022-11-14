@@ -25,7 +25,6 @@ import { NoteViewComponent } from './note-view/note-view.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
-
 @NgModule({
   declarations: [
     AppComponent,
