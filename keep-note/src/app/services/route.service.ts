@@ -10,4 +10,7 @@ export class RouteService {
   navigateToHomeView() {
     this.router.navigate(['']);
   }
+  navigateToLoginView() {
+    this.router.navigate(['login']);
+  }
 }
