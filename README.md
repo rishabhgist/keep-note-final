@@ -1,35 +1,27 @@
-## Challenge - Keep Note
+# KeepNote
 
-#### Context
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
-Keep Note is a web app that allows user to maintain notes.  The app should be designed as a single page application.​
+## Development server
 
-Based on SPA approach, the app should be developed by creating components.​
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-The app is in its final phase of development. During the initial phases, the components are created to view, add, edit, delete and search notes. The persistence has been implemented using `json-server`. Angular Material components are used to style the Keep Note app. The navigation in app has been enabled and the users are available to navigate to various views in the application.
+## Code scaffolding
 
-By making HTTP calls to `json-server`, notes are fetched from and saved in `notes.json` file located in `keep-note-data` folder.​
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-In this final phase of development, the user should first login and get the credentials validated. Upon successful validation, the user should be allowed to access views that allow interacting with notes data.
+## Build
 
-**Note:** The changes required for developing the solution of this challenge should be implemented in the solution code of `Keep Note` developed in the `challenge` of `Sprint 4: Implement Navigation using Angular Routing` of this course.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-#### Task 1 - Guard Routes with Restricted Access
+## Running unit tests
 
-- Add Authentication Service
-- Define methods that allows users to login and logout and check for user’s logged in status
-- Add Login Component
-- Define route to navigate to Login component
-- Enable programmatic navigation to Login component
-- Define `CanActivate` route guard
-- The route should return true for logged in users otherwise redirect users to login view and return false
-- Apply route to routes with restricted access.
-- Make provision to allow users to login and logout on the app
-- Add login / logout links
-- Refactor `App` component to handle login/logout actions
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-#### Task 2 - Prevent losing unsaved changes using Guard
-- Add `CanDeactivate` route guard.
-    - The guard should call the method of target component and return the value returned by that method.
-- Refactor component that edits note to implement confirmation workflow for unsaved edit changes
-    - Add method that seeks confirmation from user if changes are not saved and accordinly return boolean value
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
